@@ -10,7 +10,7 @@ const CONFIG = {
   PRICING_COMING_SOON: true,
   CONTACT_EMAIL: "hello@optyfield.com",
   PHONE: "281-932-9345",
-  FORMSPREE_ID: "xojnjowo",
+  FORMSPREE_ID: "",
 };
 
 // ═══════════════════════════════════════════
@@ -83,7 +83,7 @@ function Logo({ height = 36, theme = "light", showSub = false }) {
         <tspan fill={textFill}>Opty</tspan><tspan fill="#EF4444">Field</tspan>
       </text>
       {showSub && (
-        <text x="58.46" y="56" fontFamily="'DM Sans', 'Segoe UI', Arial, sans-serif" fontSize="9" fill="#8899AA" letterSpacing="2.5" fontWeight="400">FIELD SERVICE CRM</text>
+        <text x="58.46" y="56" fontFamily="'DM Sans', 'Segoe UI', Arial, sans-serif" fontSize="9" fill={theme === "dark" ? "#8899AA" : "#0B1426"} letterSpacing="2.5" fontWeight="400">FIELD SERVICE CRM</text>
       )}
     </svg>
   );
@@ -157,7 +157,7 @@ function Nav({ page, setPage }) {
       <nav style={{ position: "fixed", top: 0, left: 0, right: 0, zIndex: 1000, background: scrolled ? "rgba(255,255,255,0.95)" : "rgba(255,255,255,0.8)", backdropFilter: "blur(20px)", borderBottom: scrolled ? "1px solid #E5E7EB" : "1px solid transparent", transition: "all 0.3s ease" }}>
         <Container>
           <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", height: 64 }}>
-            <div onClick={() => setPage("home")} style={{ cursor: "pointer" }}><Logo height={32} theme="light" showSub={false} /></div>
+            <div onClick={() => setPage("home")} style={{ cursor: "pointer" }}><Logo height={44} theme="light" showSub={true} /></div>
             <div style={{ display: "flex", alignItems: "center", gap: 32 }} className="desktop-nav">
               {links.map((l) => (<span key={l.id} onClick={() => setPage(l.id)} style={{ fontSize: 14, fontWeight: 500, cursor: "pointer", fontFamily: "'DM Sans', sans-serif", color: page === l.id ? C.red : C.grayDark, transition: "color 0.2s ease" }}>{l.label}</span>))}
               {CONFIG.SHOW_BOOK_DEMO && (<Button size="sm" onClick={() => setPage("contact")}>Book a Demo</Button>)}
@@ -186,7 +186,7 @@ function Footer({ setPage }) {
       <Container>
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(180px, 1fr))", gap: 40, marginBottom: 48 }}>
           <div>
-            <div onClick={() => setPage("home")} style={{ cursor: "pointer" }}><Logo height={40} theme="dark" showSub={true} /></div>
+            <div onClick={() => setPage("home")} style={{ cursor: "pointer" }}><Logo height={80} theme="dark" showSub={true} /></div>
             <p style={{ fontSize: 13, color: C.grayLight, lineHeight: 1.7, marginTop: 16 }}>Built by field service veterans for teams that move. Dispatching, estimating, and customer management — all in one platform.</p>
           </div>
           <div>
@@ -240,7 +240,6 @@ function HomePage({ setPage }) {
         <div style={{ position: "absolute", top: "-20%", right: "-10%", width: 500, height: 500, background: `radial-gradient(circle, ${C.redGlow} 0%, transparent 70%)`, borderRadius: "50%" }} />
         <Container style={{ position: "relative", zIndex: 1 }}>
           <div style={{ maxWidth: 680 }}>
-            <FadeIn><div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 20 }}><ShieldLogo size={36} /><span style={{ fontFamily: "'Space Mono', monospace", fontSize: 11, letterSpacing: 3, textTransform: "uppercase", color: C.red, fontWeight: 700 }}>Field Service CRM</span></div></FadeIn>
             <FadeIn delay={0.1}><h1 style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "clamp(36px, 5.5vw, 60px)", fontWeight: 700, color: "#fff", letterSpacing: -1, lineHeight: 1.08, margin: "0 0 20px" }}>Dispatch smarter.<br /><span style={{ color: C.red }}>Serve faster.</span></h1></FadeIn>
             <FadeIn delay={0.2}><p style={{ fontSize: 18, color: C.grayLight, lineHeight: 1.7, fontFamily: "'DM Sans', sans-serif", margin: "0 0 36px", maxWidth: 520 }}>The field service CRM built for teams that move. AI-powered estimates, real-time dispatch, a technician mobile app, and a customer portal — all connected.</p></FadeIn>
             <FadeIn delay={0.3}><div style={{ display: "flex", gap: 12, flexWrap: "wrap" }}><Button size="lg" onClick={() => setPage("features")}>Explore Features {Icons.arrow}</Button>{CONFIG.SHOW_BOOK_DEMO && (<Button variant="white" size="lg" onClick={() => setPage("contact")}>Book a Demo</Button>)}</div></FadeIn>
