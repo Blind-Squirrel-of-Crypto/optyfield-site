@@ -156,8 +156,8 @@ function Nav({ page, setPage }) {
     <>
       <nav style={{ position: "fixed", top: 0, left: 0, right: 0, zIndex: 1000, background: scrolled ? "rgba(255,255,255,0.95)" : "rgba(255,255,255,0.8)", backdropFilter: "blur(20px)", borderBottom: scrolled ? "1px solid #E5E7EB" : "1px solid transparent", transition: "all 0.3s ease" }}>
         <Container>
-          <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", height: 64 }}>
-            <div onClick={() => setPage("home")} style={{ cursor: "pointer" }}><Logo height={44} theme="light" showSub={true} /></div>
+          <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", height: 88 }}>
+            <div onClick={() => setPage("home")} style={{ cursor: "pointer" }}><Logo height={70} theme="light" showSub={true} /></div>
             <div style={{ display: "flex", alignItems: "center", gap: 32 }} className="desktop-nav">
               {links.map((l) => (<span key={l.id} onClick={() => setPage(l.id)} style={{ fontSize: 14, fontWeight: 500, cursor: "pointer", fontFamily: "'DM Sans', sans-serif", color: page === l.id ? C.red : C.grayDark, transition: "color 0.2s ease" }}>{l.label}</span>))}
               {CONFIG.SHOW_BOOK_DEMO && (<Button size="sm" onClick={() => setPage("contact")}>Book a Demo</Button>)}
