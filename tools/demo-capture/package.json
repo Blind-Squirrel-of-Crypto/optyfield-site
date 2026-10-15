@@ -1,0 +1,14 @@
+{
+  "name": "optyfield-demo-capture",
+  "private": true,
+  "type": "module",
+  "description": "Seeds a fictional demo company into the LOCAL database and captures website screenshots/videos of the real app. Never touches production.",
+  "scripts": {
+    "capture": "node run.mjs",
+    "reset": "node reset.mjs",
+    "stack": "node stack.mjs"
+  },
+  "devDependencies": {
+    "playwright": "1.55.0"
+  }
+}
