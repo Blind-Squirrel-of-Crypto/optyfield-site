@@ -18,7 +18,7 @@ const spaceMono = Space_Mono({
 export const metadata = {
   title: "OptyField — Field Service CRM",
   description:
-    "The field service CRM built for teams that move. AI-powered estimates, real-time dispatch, a technician mobile app, and a customer portal — all connected.",
+    "The field service CRM built for teams that move. Real-time dispatch, a technician mobile app, and a customer portal with machine-by-machine approvals — all connected.",
   keywords: [
     "field service CRM",
     "dispatch software",
@@ -33,7 +33,7 @@ export const metadata = {
   openGraph: {
     title: "OptyField — Field Service CRM",
     description:
-      "Dispatch smarter. Serve faster. AI-powered estimates, real-time dispatch, and a customer portal — all connected.",
+      "Dispatch smarter. Serve faster. Real-time dispatch, a technician app, and a customer portal — all connected.",
     url: "https://optyfield.com",
     siteName: "OptyField",
     type: "website",
@@ -42,7 +42,7 @@ export const metadata = {
     card: "summary_large_image",
     title: "OptyField — Field Service CRM",
     description:
-      "Dispatch smarter. Serve faster. AI-powered estimates, real-time dispatch, and a customer portal — all connected.",
+      "Dispatch smarter. Serve faster. Real-time dispatch, a technician app, and a customer portal — all connected.",
   },
   metadataBase: new URL("https://optyfield.com"),
 };
