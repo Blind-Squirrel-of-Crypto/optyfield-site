@@ -20,3 +20,9 @@ npm-debug.log*
 
 # vercel
 .vercel
+
+# demo-capture output that is NOT published (AI estimating isn't live; videos unused)
+/public/demo/videos/
+/public/demo/shots/ai-*.png
+/public/demo/shots/tech-notes.png
+/public/demo/shots/sb-schedule.png
