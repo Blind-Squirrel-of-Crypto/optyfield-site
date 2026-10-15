@@ -10,7 +10,8 @@ const CONFIG = {
   PRICING_COMING_SOON: true,
   CONTACT_EMAIL: "hello@optyfield.com",
   PHONE: "281-932-9345",
-  FORMSPREE_ID: "",
+  // "Book a Demo" submissions go to the OptyField API, which emails them to Doug.
+  DEMO_REQUEST_URL: "https://exer-tech-api-production.up.railway.app/api/public/demo-request",
 };
 
 // ═══════════════════════════════════════════
@@ -390,14 +391,23 @@ function AboutPage() {
 // CONTACT PAGE
 // ═══════════════════════════════════════════
 function ContactPage() {
-  const [form, setForm] = useState({ name: "", email: "", company: "", size: "", message: "" });
+  const [form, setForm] = useState({ name: "", email: "", company: "", size: "", message: "", website: "" });
   const [submitted, setSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
+  const [error, setError] = useState("");
+  // Only show "We'll be in touch" once the request has actually been delivered.
   const handleSubmit = async () => {
-    if (!form.name || !form.email) return;
-    setSubmitting(true);
-    if (CONFIG.FORMSPREE_ID) { try { await fetch(`https://formspree.io/f/${CONFIG.FORMSPREE_ID}`, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ name: form.name, email: form.email, company: form.company, teamSize: form.size, message: form.message, _subject: `OptyField Demo Request from ${form.name}` }) }); } catch (e) {} }
-    setSubmitting(false); setSubmitted(true);
+    if (submitting) return;
+    if (!form.name || !form.email) { setError("Please enter your name and email."); return; }
+    setSubmitting(true); setError("");
+    try {
+      const res = await fetch(CONFIG.DEMO_REQUEST_URL, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ name: form.name, email: form.email, company: form.company, teamSize: form.size, message: form.message, website: form.website }) });
+      if (res.ok) { setSubmitted(true); }
+      else { const data = await res.json().catch(() => ({})); setError(data.message || `Something went wrong. Please email ${CONFIG.CONTACT_EMAIL}.`); }
+    } catch (e) {
+      setError(`We couldn't reach our server. Please email ${CONFIG.CONTACT_EMAIL} or call ${CONFIG.PHONE}.`);
+    }
+    setSubmitting(false);
   };
   return (
     <section style={{ paddingTop: 120, paddingBottom: 80 }}><Container>
@@ -420,6 +430,8 @@ function ContactPage() {
                 ))}
                 <div><label style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 13, fontWeight: 600, color: C.navy, display: "block", marginBottom: 6 }}>Team size</label><select value={form.size} onChange={(e) => setForm({ ...form, size: e.target.value })} style={{ width: "100%", padding: "10px 14px", borderRadius: 10, border: "1.5px solid #E5E7EB", fontSize: 14, fontFamily: "'DM Sans', sans-serif", outline: "none", background: "#fff", boxSizing: "border-box", color: form.size ? C.navy : C.grayLight }}><option value="">How many technicians?</option><option value="1-5">1–5 technicians</option><option value="6-15">6–15 technicians</option><option value="16-50">16–50 technicians</option><option value="50+">50+ technicians</option></select></div>
                 <div><label style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 13, fontWeight: 600, color: C.navy, display: "block", marginBottom: 6 }}>Message</label><textarea placeholder="Tell us about your operation..." value={form.message} onChange={(e) => setForm({ ...form, message: e.target.value })} rows={4} style={{ width: "100%", padding: "10px 14px", borderRadius: 10, border: "1.5px solid #E5E7EB", fontSize: 14, fontFamily: "'DM Sans', sans-serif", outline: "none", background: "#fff", resize: "vertical", boxSizing: "border-box" }} onFocus={(e) => e.target.style.borderColor = C.red} onBlur={(e) => e.target.style.borderColor = "#E5E7EB"} /></div>
+                <input type="text" name="website" tabIndex={-1} autoComplete="off" aria-hidden="true" value={form.website} onChange={(e) => setForm({ ...form, website: e.target.value })} style={{ position: "absolute", left: -9999, width: 1, height: 1, opacity: 0 }} />
+                {error && <div role="alert" style={{ fontSize: 13, color: C.redDark, fontFamily: "'DM Sans', sans-serif" }}>{error}</div>}
                 <Button size="lg" onClick={handleSubmit} style={{ width: "100%", justifyContent: "center", marginTop: 4, opacity: submitting ? 0.6 : 1 }}>{submitting ? "Sending..." : CONFIG.SHOW_BOOK_DEMO ? "Request a Demo" : "Send Message"}</Button>
               </div>
             </div>
