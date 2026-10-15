@@ -16,7 +16,7 @@ export default function Contact() {
           <div className="eyebrow">Book a walkthrough</div>
           <h1 className="h2">See OptyField with your own work</h1>
           <p style={{ marginTop: 12 }}>
-            A 30-minute video call with the team that built it. Bring a few of your techs&apos; notes and an equipment list
+            A 30-minute video call with the team that built it. Bring an equipment list and a typical week of jobs
             if you have them, and we&apos;ll show you what OptyField does with them.
           </p>
           <div style={{ display: "grid", gap: 18, marginTop: 30 }}>

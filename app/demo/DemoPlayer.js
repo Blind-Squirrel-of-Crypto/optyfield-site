@@ -64,7 +64,7 @@ export default function DemoPlayer({ steps }) {
         {done && (
           <div className="peek-end">
             <h3>That&apos;s the 2-minute version.</h3>
-            <p>In a 30-minute walkthrough we&apos;ll run your own techs&apos; notes and equipment through OptyField and answer every question.</p>
+            <p>In a 30-minute walkthrough we&apos;ll show OptyField with work like yours (your customers, your equipment, your week) and answer every question.</p>
             <div className="btn-row" style={{ justifyContent: "center" }}>
               <Link href="/contact?from=demo" className="btn btn-primary" onClick={() => track("demo_cta_click")}>Book a full walkthrough</Link>
               <button className="btn btn-ghost" style={{ color: "#fff", borderColor: "rgba(255,255,255,.3)" }} onClick={() => go(0)}>Start over</button>
