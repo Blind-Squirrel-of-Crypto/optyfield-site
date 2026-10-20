@@ -33,7 +33,7 @@ export default function CustomerApprovals() {
       </section>
 
       <section className="section tight">
-        <div className="container narrow">
+        <div className="container" style={{ maxWidth: 1040 }}>
           <div className="center video-head">
             <div className="eyebrow">Watch it · 90 seconds</div>
             <h2>One estimate, from the customer&apos;s inbox to the parts order</h2>

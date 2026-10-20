@@ -40,7 +40,7 @@ export default function DispatchScheduling() {
       </section>
 
       <section className="section tight">
-        <div className="container narrow">
+        <div className="container" style={{ maxWidth: 1040 }}>
           <div className="center video-head">
             <div className="eyebrow">Watch it · 75 seconds</div>
             <h2>Plan a day: board, map and Schedule Builder</h2>
