@@ -1,6 +1,7 @@
 import Link from "next/link";
 import demo from "../../public/demo/demo-data.json";
 import { CTA, Checks, DemoDataNote, Shot } from "../_components/site";
+import Video from "../_components/Video";
 
 export const metadata = {
   title: "Dispatch board and Schedule Builder",
@@ -14,7 +15,6 @@ const sb = demo.flows["schedule-builder"]?.steps ?? [];
 const sbShot = (key) => sb.find((s) => s.key === key);
 
 export default function DispatchScheduling() {
-  const sbMap = sbShot("sb-map");
   const sbSchedule = sbShot("sb-schedule");
   return (
     <>
@@ -36,6 +36,17 @@ export default function DispatchScheduling() {
             <Shot src="/demo/shots/dispatch-board.png" alt="Dispatch board: unscheduled jobs grouped by area on the left, each technician's day on the right" label="Dispatch Board" priority />
             <DemoDataNote />
           </div>
+        </div>
+      </section>
+
+      <section className="section tight">
+        <div className="container narrow">
+          <div className="center video-head">
+            <div className="eyebrow">Watch it · 75 seconds</div>
+            <h2>Plan a day: board, map and Schedule Builder</h2>
+          </div>
+          <Video name="dispatch-schedule-builder" title="Dispatch board and Schedule Builder walkthrough" width={1920} height={1080}
+            caption="Drag a job onto a tech's day, see the day as a list and on the map, then build and optimise a route in Schedule Builder and send it to the board." />
         </div>
       </section>
 
@@ -61,11 +72,7 @@ export default function DispatchScheduling() {
       <section className="section alt">
         <div className="container grid grid-2">
           <div>
-            {sbMap ? (
-              <Shot src={`/demo/shots/${sbMap.image}`} alt="Schedule Builder map with every unscheduled job" label="Schedule Builder" />
-            ) : (
-              <Shot src="/demo/shots/dispatch-detail.png" alt="Job details opened from the dispatch board" label="Dispatch Board" />
-            )}
+            <Shot src="/videos/schedule-builder-route.webp" alt="Schedule Builder: waiting jobs pinned on the map and a five-stop route put in driving order" label="Schedule Builder" />
           </div>
           <div>
             <div className="eyebrow">Schedule Builder</div>

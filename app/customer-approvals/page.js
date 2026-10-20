@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { CTA, Checks, DemoDataNote, Shot } from "../_components/site";
+import Video from "../_components/Video";
 
 export const metadata = {
   title: "Customers approve repairs machine by machine",
@@ -28,6 +29,17 @@ export default function CustomerApprovals() {
             <Shot src="/demo/shots/portal-estimate.png" alt="Customer portal estimate with an Approve and Decline button for each machine" label="Customer Portal" priority />
             <DemoDataNote />
           </div>
+        </div>
+      </section>
+
+      <section className="section tight">
+        <div className="container narrow">
+          <div className="center video-head">
+            <div className="eyebrow">Watch it · 90 seconds</div>
+            <h2>One estimate, from the customer&apos;s inbox to the parts order</h2>
+          </div>
+          <Video name="customer-portal" title="Customer approves an estimate machine by machine" width={1440} height={900}
+            caption="The customer approves four machines, declines one, signs with a PO number. The office releases the approved work to parts ordering." />
         </div>
       </section>
 

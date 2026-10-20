@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { CTA, Checks, DemoDataNote, Shot, Soon } from "./_components/site";
+import Video from "./_components/Video";
 
 export const metadata = { alternates: { canonical: "/" } };
 
@@ -127,7 +128,8 @@ export default function Home() {
             <p className="small muted" style={{ marginTop: 18 }}>AI-drafted estimates from tech notes <Soon /> &nbsp; QuickBooks Online invoicing <Soon /> &nbsp; Android tech app <Soon /></p>
           </div>
           <div>
-            <Shot src="/demo/shots/register-detail.png" alt="One treadmill's service history" label="Equipment history" />
+            <Video name="tech-app-walkthrough" title="Technician app walkthrough on iPhone" width={390} height={844} mp4={false} phone
+              caption="The technician app on iPhone: today's schedule, check-in, a maintenance checklist and parts to install." />
             <DemoDataNote />
           </div>
         </div>
