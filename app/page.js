@@ -128,7 +128,7 @@ export default function Home() {
             <p className="small muted" style={{ marginTop: 18 }}>AI-drafted estimates from tech notes <Soon /> &nbsp; QuickBooks Online invoicing <Soon /> &nbsp; Android tech app <Soon /></p>
           </div>
           <div>
-            <Video name="tech-app-walkthrough" title="Technician app walkthrough on iPhone" width={390} height={844} mp4={false} phone
+            <Video name="tech-app-walkthrough" title="Technician app walkthrough on iPhone" width={390} height={844} phone
               caption="The technician app on iPhone: today's schedule, check-in, a maintenance checklist and parts to install." />
             <DemoDataNote />
           </div>
