@@ -1,6 +1,7 @@
 import Link from "next/link";
 import demo from "../../public/demo/demo-data.json";
 import DemoPlayer from "./DemoPlayer";
+import Video from "../_components/Video";
 
 export const metadata = {
   title: "Interactive demo",
@@ -24,6 +25,18 @@ export default function Demo() {
         <p className="center small muted" style={{ marginTop: 18 }}>
           Want the full version? <Link href="/contact?from=demo" className="accent"><b>Book a 30-minute walkthrough →</b></Link>
         </p>
+      </div>
+      <div className="container" style={{ marginTop: 72 }}>
+        <div className="center video-head">
+          <div className="eyebrow">Prefer to watch?</div>
+          <h2>Two short walkthroughs</h2>
+        </div>
+        <div className="grid grid-2" style={{ alignItems: "start" }}>
+          <Video name="dispatch-schedule-builder" title="Dispatch board and Schedule Builder walkthrough" width={1920} height={1080}
+            caption="Dispatch board and Schedule Builder · 75 seconds" />
+          <Video name="customer-portal" title="Customer approves an estimate machine by machine" width={1440} height={900}
+            caption="Customer approval to parts order · 90 seconds" />
+        </div>
       </div>
     </section>
   );

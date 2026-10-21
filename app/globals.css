@@ -184,3 +184,10 @@ table.compare th { font-size: 12px; text-transform: uppercase; letter-spacing: 1
   .peek-mobile-caption { display: block; background: #fff; border-radius: 10px; padding: 14px; margin-top: 10px; }
   .peek-mobile-caption b { display: block; margin-bottom: 4px; }
 }
+
+/* Product videos (lazy: preload="none" + poster) */
+.video-frame { border-radius: 12px; overflow: hidden; border: 1px solid rgba(255, 255, 255, .08); background: #0B1220; box-shadow: 0 24px 60px rgba(11, 20, 38, .28); }
+.video video { display: block; width: 100%; height: auto; background: #0B1220; }
+.video.phone { max-width: 300px; margin: 0 auto; }
+.video.phone .video-frame { border-radius: 28px; border: 8px solid #0B1426; }
+.video-head { margin-bottom: 18px; }
